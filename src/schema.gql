@@ -1,0 +1,261 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Patient {
+  """id user"""
+  id: String!
+
+  """email user"""
+  email: String!
+
+  """firstname user"""
+  firstname: String
+
+  """lastname user"""
+  lastname: String
+
+  """password user"""
+  age: String!
+
+  """status user"""
+  status: STATUS
+
+  """address user"""
+  address: String
+
+  """phone user"""
+  phone: String
+
+  """createdAt user"""
+  createdAt: Date!
+
+  """updatedAt user"""
+  updatedAt: Date!
+}
+
+enum STATUS {
+  ACTIVE
+  INACTIVE
+  PENDING
+  DELETED
+}
+
+type ResponsePatient {
+  total_pages: Int!
+  total_items: Int!
+  count: Int!
+  current_page: Int!
+  patients: [Patient!]!
+}
+
+type User {
+  """id user"""
+  id: String!
+
+  """email user"""
+  email: String!
+
+  """firstname user"""
+  firstname: String
+
+  """lastname user"""
+  lastname: String
+
+  """password user"""
+  password: String!
+
+  """status user"""
+  status: STATUS
+
+  """role user"""
+  role: ROLE!
+
+  """address user"""
+  address: String
+
+  """phone user"""
+  phone: String
+
+  """createdAt user"""
+  createdAt: Date!
+
+  """updatedAt user"""
+  updatedAt: Date!
+}
+
+enum ROLE {
+  ADMIN
+  DOCTOR
+}
+
+type ResponseUser {
+  total_pages: Int!
+  total_items: Int!
+  count: Int!
+  current_page: Int!
+  users: [User!]!
+}
+
+type Auth {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type Query {
+  patients(input: InputQueries!): ResponsePatient!
+  patient(id: InputIdQueries!): Patient!
+  users(input: InputQueries!): ResponseUser!
+  user(id: InputIdQueries!): User!
+  auth(id: Int!): Auth!
+}
+
+input InputQueries {
+  """status user"""
+  status: String
+
+  """search user"""
+  search: String
+
+  """pagination user"""
+  skip: Int!
+
+  """pagination user"""
+  take: Int!
+}
+
+input InputIdQueries {
+  """id"""
+  id: String
+}
+
+type Mutation {
+  createPatient(createPatientInput: CreatePatientInput!): Patient!
+  updatePatient(updatePatientInput: UpdatePatientInput!): Patient!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  login(login: loginInput!): String!
+  updateAuth(updateAuthInput: UpdateAuthInput!): Auth!
+  removeAuth(id: Int!): Auth!
+}
+
+input CreatePatientInput {
+  """email"""
+  email: String!
+
+  """firstname"""
+  firstname: String!
+
+  """lastname"""
+  lastname: String!
+
+  """age"""
+  age: Int!
+
+  """status"""
+  status: STATUS!
+
+  """dateOfBirth"""
+  dateOfBirth: Date!
+
+  """address"""
+  address: String!
+
+  """phone"""
+  phone: String!
+}
+
+input UpdatePatientInput {
+  id: String!
+
+  """email"""
+  email: String
+
+  """firstname"""
+  firstname: String
+
+  """lastname"""
+  lastname: String
+
+  """age"""
+  age: Int
+
+  """status"""
+  status: STATUS
+
+  """dateOfBirth"""
+  dateOfBirth: Date
+
+  """address"""
+  address: String
+
+  """phone"""
+  phone: String
+}
+
+input CreateUserInput {
+  """email user"""
+  email: String!
+
+  """firstname user"""
+  firstname: String!
+
+  """lastname user"""
+  lastname: String!
+
+  """password user"""
+  password: String!
+
+  """role user"""
+  role: ROLE!
+
+  """address user"""
+  address: String!
+
+  """phone user"""
+  phone: String!
+}
+
+input UpdateUserInput {
+  """id user"""
+  id: String!
+
+  """email user"""
+  email: String
+
+  """firstname user"""
+  firstname: String
+
+  """lastname user"""
+  lastname: String
+
+  """password user"""
+  password: String
+
+  """role user"""
+  status: STATUS
+
+  """role user"""
+  role: ROLE
+
+  """address user"""
+  address: String
+
+  """phone user"""
+  phone: String
+}
+
+input loginInput {
+  """Email"""
+  email: String!
+
+  """Password"""
+  password: String!
+}
+
+input UpdateAuthInput {
+  id: Int!
+}

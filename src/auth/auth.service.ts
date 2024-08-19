@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private prisma: PrismaService) { }
 
-  async create(Input: loginInput) {
+  async login(Input: loginInput) {
     try {
       const { email, password } = Input;
       const user = await this.prisma.user.findUnique({
@@ -23,7 +23,11 @@ export class AuthService {
         throw new Error("Password incorrect");
       }
       return "Login success";
-    } catch (error) { } finally { }
+    } catch (error) {
+      throw new Error(error);
+    } finally {
+      await this.prisma.$disconnect();
+    }
   }
 
   findAll() {

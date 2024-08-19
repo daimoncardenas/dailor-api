@@ -10,7 +10,7 @@ export class AuthResolver {
 
   @Mutation(() => String)
   async login(@Args('login') loginInput: loginInput): Promise<string> {
-    return await this.authService.create(loginInput);
+    return await this.authService.login(loginInput);
   }
 
   @Query(() => [Auth], { name: 'auth' })

@@ -210,13 +210,13 @@ input CreateUserInput {
   password: String!
 
   """role user"""
-  role: ROLE!
+  role: ROLE
 
   """address user"""
-  address: String!
+  address: String
 
   """phone user"""
-  phone: String!
+  phone: String
 }
 
 input UpdateUserInput {
